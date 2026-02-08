@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    active_record_properties (0.1.0)
-      activerecord (>= 7.0)
-      activesupport (>= 7.0)
+    active_record_properties (0.2.0)
+      activerecord (>= 7.2)
+      activesupport (>= 7.2)
 
 GEM
   remote: https://rubygems.org/
@@ -179,7 +179,7 @@ DEPENDENCIES
   standard (>= 1.35.1)
 
 CHECKSUMS
-  active_record_properties (0.1.0)
+  active_record_properties (0.2.0)
   activemodel (8.1.2) sha256=e21358c11ce68aed3f9838b7e464977bc007b4446c6e4059781e1d5c03bcf33e
   activerecord (8.1.2) sha256=acfbe0cadfcc50fa208011fe6f4eb01cae682ebae0ef57145ba45380c74bcc44
   activesupport (8.1.2) sha256=88842578ccd0d40f658289b0e8c842acfe9af751afee2e0744a7873f50b6fdae

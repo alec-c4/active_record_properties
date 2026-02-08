@@ -15,17 +15,23 @@ ActiveRecord::Base.establish_connection(adapter: "sqlite3", database: ":memory:"
 # Load schema
 ActiveRecord::Schema.define do
   create_table :test_models, force: true do |t|
-    # SQLite doesn't have jsonb, use text with JSON serialization
-    t.text :properties
-    t.text :settings
+    if ActiveRecord::Base.connection.adapter_name == "SQLite" && ActiveRecord::VERSION::STRING >= "7.1"
+      t.json :properties
+      t.json :settings
+    else
+      t.text :properties
+      t.text :settings
+    end
     t.timestamps
   end
 end
 
 # Define test model with JSON serialization for SQLite
 class TestModel < ActiveRecord::Base
-  serialize :properties, coder: JSON
-  serialize :settings, coder: JSON
+  if ActiveRecord::Base.connection.adapter_name == "SQLite" && ActiveRecord::VERSION::STRING < "7.1"
+    serialize :properties, coder: JSON
+    serialize :settings, coder: JSON
+  end
 
   include ActiveRecordProperties::Settable
 

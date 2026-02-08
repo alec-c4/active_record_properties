@@ -51,7 +51,7 @@ RSpec.describe ActiveRecordProperties::Settable do
     end
 
     it "sets and retrieves hash value" do
-      model.config = {key: "value"}
+      model.config = {"key" => "value"}
       expect(model.config).to eq({"key" => "value"})
     end
 
