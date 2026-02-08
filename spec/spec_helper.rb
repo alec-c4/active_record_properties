@@ -1,6 +1,37 @@
 # frozen_string_literal: true
 
+require "active_record"
 require "active_record_properties"
+
+# Setup in-memory SQLite database for tests
+ActiveRecord::Base.establish_connection(adapter: "sqlite3", database: ":memory:")
+
+# Load schema
+ActiveRecord::Schema.define do
+  create_table :test_models, force: true do |t|
+    # SQLite doesn't have jsonb, use text with JSON serialization
+    t.text :properties
+    t.text :settings
+    t.timestamps
+  end
+end
+
+# Define test model with JSON serialization for SQLite
+class TestModel < ActiveRecord::Base
+  serialize :properties, coder: JSON
+  serialize :settings, coder: JSON
+
+  include ActiveRecordProperties::Settable
+
+  has_properties column: :properties do
+    property :name, type: :string, default: "default"
+    property :count, type: :integer, default: 0
+    property :rate, type: :float, default: 1.5
+    property :enabled, type: :boolean, default: true
+    property :config, type: :hash, default: -> { {} }
+    property :tags, type: :array, default: -> { [] }
+  end
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -11,5 +42,10 @@ RSpec.configure do |config|
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
+  end
+
+  # Clean database before each test
+  config.before do
+    TestModel.delete_all
   end
 end
