@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-07-15
+
+### Changed
+- Updated development and test dependencies (activesupport 8.1.3, concurrent-ruby 1.3.7, erb, json, and others). No changes to the gem's runtime behavior.
+
 ## [0.2.0] - 2026-02-08
 
 ### Changed
