@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    active_record_properties (0.2.1)
+    active_record_properties (0.3.0)
       activerecord (>= 7.2)
       activesupport (>= 7.2)
 
@@ -325,7 +325,7 @@ CHECKSUMS
   actionpack (8.0.5) sha256=c9de868975dd124a0956499140bd5e63c367865deca01292df7c3195c8da4b35
   actiontext (8.0.5) sha256=12f3ce3d6326230728316ba14eeac27b2100d6e7d9bfcb4b01fb27b187a812e1
   actionview (8.0.5) sha256=6d0fa9e63df0cf2729b1f54d0988336c149eb2bbc6049f4c2834d7b62f351413
-  active_record_properties (0.2.1)
+  active_record_properties (0.3.0)
   activejob (8.0.5) sha256=2dabe5c3bfe284aba4687c52b930564335435dde3a60b047821f9d3bd0d2ea10
   activemodel (8.0.5) sha256=c796813d46dc1373f4c6c0ec91dfc520b53683ea773c3b3f9a12c4b3eb145bc2
   activerecord (8.0.5) sha256=89b261b6cd910c9431cf2475f3f6e5e2f5ce589805043a33ef2b004376a129e6
